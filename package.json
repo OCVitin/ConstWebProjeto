@@ -1,0 +1,19 @@
+{
+  "name": "projetoweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node-telegram-bot-api": "^0.64.2",
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0"
+  }
+}
