@@ -10,6 +10,12 @@
 
 ```npm install --save-dev nodemon```
 
+```npm install typescript --save-dev```
+
+```npm install dotenv```
+
 ### Comando de execução do projeto:
 
 ```npx nodemon```
+
+```npx tsc --init```
