@@ -1,7 +1,7 @@
 {
   "name": "projetoweb",
   "version": "1.0.0",
-  "description": "",
+  "description": "```npm init -y```",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,10 +12,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node-telegram-bot-api": "^0.64.5",
+    "@types/dotenv": "^8.2.0",
+    "@types/node-telegram-bot-api": "^0.64.6",
     "nodemon": "^3.1.0",
+    "prisma": "^5.11.0",
     "tsc": "^2.0.4",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.3"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

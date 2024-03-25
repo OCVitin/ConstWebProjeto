@@ -1,13 +1,26 @@
 import { config } from "dotenv";
 import TelegramBot from "node-telegram-bot-api";
 
-// replace the value below with the Telegram token you receive from @BotFather
-//const token = '7011088990:AAHL56XFN823kgipVlA9d5dX58ZUXI478K4';
+config();
 
-// Create a bot that uses 'polling' to fetch new updates
+declare global {
+    namespace NodeJS {
+        interface ProcessEnv {
+            TOKEN: String
+        }
+    }
+}
+
+interface Pessoa {
+    nome: String,
+    cpf: String,
+    numero: Number,
+}
+
+const token = "YOUR_TELEGRAM_BOT_TOKEN";
+
 const bot = new TelegramBot(token, {polling: true});
 
-// Matches "/echo [whatever]"
 bot.onText(/\/echo (.+)/, (msg, match) => {
     const chatId = msg.chat.id;
     if(match){
@@ -18,9 +31,7 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
     }
 });
 
-// Listen for any kind of message. There are different kinds of
-// messages.
-function sendWelcomeMessage(chatId) {
+function sendWelcomeMessage(chatId: number) {
     bot.sendMessage(
         chatId,
         'Bem-vindo! Escolha uma opção:\n\n' +
@@ -30,24 +41,18 @@ function sendWelcomeMessage(chatId) {
     );
 }
 
-// Listen for any kind of message. There are different kinds of
-// messages.
 bot.on('message', (msg) => {
     const chatId = msg.chat.id;
 
-    // Verifica se a mensagem é um comando
     if (msg.text && msg.text.startsWith('/')) {
-        // Se for um comando, não faz nada por enquanto, mas você pode implementar lógicas adicionais aqui
         return;
     }
 
-    // Envie a mensagem de boas-vindas se necessário
     if (msg.text === '/start') {
         sendWelcomeMessage(chatId);
         return;
     }
 
-    // Lidar com a seleção de opções
     switch (msg.text) {
         case '1':
             bot.sendMessage(chatId, 'Fazer cadastro.');
@@ -67,7 +72,6 @@ bot.on('message', (msg) => {
     }
 });
 
-// Lidar com erros
 bot.on('polling_error', (error) => {
-    console.log(error); // Registrar erro no console
+    console.log(error);
 });
