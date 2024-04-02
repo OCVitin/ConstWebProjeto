@@ -8,6 +8,9 @@
     "predev": "npx tsc",
     "dev": "npx nodemon ./build/bot.js"
   },
+  "prisma": {
+    "schema": "./src/prisma"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
